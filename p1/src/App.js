@@ -1,3 +1,35 @@
+const Header = (val) => {
+  return(
+    <>
+      <h1>{val.x}</h1>
+    </>
+  )
+
+}
+const Part = (val2) =>{
+  return(
+    <>
+      <p>{val2.x} {val2.y}</p>
+    </>
+  )
+}
+const Content = (val) => {
+  return(
+    <>
+      <p>
+        <Part x={val.x1} y={val.y1}/>
+        <Part x={val.x2} y={val.y2}/>
+        <Part x={val.x3} y={val.y3}/>
+      </p>
+    </>
+  )
+}
+const Total = (val) => {
+  <>
+    <p>Number of exercises {val.x+val.y+val.z}</p>
+  </>
+}
+
 const App = () => {
   const course = 'Half Stack application development'
   const part1 = 'Fundamentals of React'
@@ -9,17 +41,9 @@ const App = () => {
 
   return (
     <div>
-      <h1>{course}</h1>
-      <p>
-        {part1} {exercises1}
-      </p>
-      <p>
-        {part2} {exercises2}
-      </p>
-      <p>
-        {part3} {exercises3}
-      </p>
-      <p>Number of exercises {exercises1 + exercises2 + exercises3}</p>
+      <Header x={course}/>
+      <Content x1={part1} y1={exercises1} x2={part2} y2={exercises2} x3={part3} y3={exercises3}/>
+      <Total xL={exercises1} y={exercises2} z={exercises3}/>
     </div>
   )
 }
