@@ -38,25 +38,25 @@ const Total = (val) => {
 
 const App = () => {
   const course = 'Half Stack application development'
-  const part1 = {
-    name: 'Fundamentals of React',
-    exercises: 10  
-  }
-
-  const part2 = {
-    name: 'Using props to pass data',
-    exercises: 7
-  }
-  const part3 = {
-    name: 'State of a component',
-    exercises: 14
-  }
-
+  const parts = [
+    {
+      name: 'Fundamentals of React',
+      exercises: 10  
+    },  
+    {
+      name: 'Using props to pass data',
+      exercises: 7
+    },
+    {
+      name: 'State of a component',
+      exercises: 14
+    }
+  ]
   return (
     <div>
       <Header x={course}/>
-      <Content x1={part1.name} y1={part1.exercises} x2={part2.name} y2={part2.exercises} x3={part3.name} y3={part3.exercises}/>
-      <Total x={part1.exercises} y={part2.exercises} z={part3.exercises}/>
+      <Content x1={parts[0].name} y1={parts[0].exercises} x2={parts[1].name} y2={parts[1].exercises} x3={parts[2].name} y3={parts[2].exercises}/>
+      <Total x={parts[0].exercises} y={parts[1].exercises} z={parts[2].exercises}/>
     </div>
   )
 }
