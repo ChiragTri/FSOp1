@@ -1,4 +1,5 @@
 const Header = (val) => {
+  console.log(val)
   return(
     <>
       <h1>{val.x}</h1>
@@ -7,6 +8,7 @@ const Header = (val) => {
 
 }
 const Part = (val2) =>{
+  console.log(val2)
   return(
     <>
       <p>{val2.x} {val2.y}</p>
@@ -14,6 +16,7 @@ const Part = (val2) =>{
   )
 }
 const Content = (val) => {
+  console.log(val)
   return(
     <>
       <p>
@@ -25,9 +28,12 @@ const Content = (val) => {
   )
 }
 const Total = (val) => {
-  <>
-    <p>Number of exercises {val.x+val.y+val.z}</p>
-  </>
+  console.log(val)
+  return(
+    <>
+      <p>Number of exercises {val.x+val.y+val.z}</p>
+    </>
+  )
 }
 
 const App = () => {
@@ -43,7 +49,7 @@ const App = () => {
     <div>
       <Header x={course}/>
       <Content x1={part1} y1={exercises1} x2={part2} y2={exercises2} x3={part3} y3={exercises3}/>
-      <Total xL={exercises1} y={exercises2} z={exercises3}/>
+      <Total x={exercises1} y={exercises2} z={exercises3}/>
     </div>
   )
 }
