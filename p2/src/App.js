@@ -7,19 +7,31 @@ const Statistics = (props) => {
   const average = () => (props.clickGood - props.clickBad) / sum()
   const percentPos = () => (props.clickGood) / sum()
 
-  return(
-    <div>
-      <h1>
-        statistics
-      </h1>
-      good {props.clickGood} <br></br>
-      neutral {props.clickNeutral} <br></br>
-      bad {props.clickBad} <br></br>
-      all {sum()} <br></br>
-      average {average()} <br></br>
-      positve {percentPos()} <br></br>
-    </div>
-  )
+  if (sum() == 0){
+    return(
+      <div>
+        <h1>
+          statistics
+        </h1>
+        No feedback given
+      </div>
+    )
+  }
+  else{
+    return(
+      <div>
+        <h1>
+          statistics
+        </h1>
+        good {props.clickGood} <br></br>
+        neutral {props.clickNeutral} <br></br>
+        bad {props.clickBad} <br></br>
+        all {sum()} <br></br>
+        average {average()} <br></br>
+        positve {percentPos()} <br></br>
+      </div>
+    )
+  }
 }
 
 const App = () => {
