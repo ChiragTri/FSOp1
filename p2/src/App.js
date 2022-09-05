@@ -2,11 +2,13 @@ import { useState } from "react"
 
 const Button = ({handleClick, text}) => (<button onClick={handleClick}>{text}</button>)
 
+const StatisticLine = (props) => (<div>{props.text} {props.value}<br></br></div>)
+
 const Statistics = (props) => {
   const sum = () => (props.clickGood + props.clickNeutral + props.clickBad)
   const average = () => (props.clickGood - props.clickBad) / sum()
   const percentPos = () => (props.clickGood) / sum()
-
+  
   if (sum() == 0){
     return(
       <div>
@@ -15,7 +17,7 @@ const Statistics = (props) => {
         </h1>
         No feedback given
       </div>
-    )
+    );
   }
   else{
     return(
@@ -23,14 +25,14 @@ const Statistics = (props) => {
         <h1>
           statistics
         </h1>
-        good {props.clickGood} <br></br>
-        neutral {props.clickNeutral} <br></br>
-        bad {props.clickBad} <br></br>
-        all {sum()} <br></br>
-        average {average()} <br></br>
-        positve {percentPos()} <br></br>
+        <StatisticLine text="good" value={props.clickGood}/>
+        <StatisticLine text="neutral" value={props.clickNeutral}/>
+        <StatisticLine text="good" value={props.clickBad}/>
+        <StatisticLine text="all" value={sum()}/>
+        <StatisticLine text="average" value={average()}/>
+        <StatisticLine text="positive" value={percentPos()}/>
       </div>
-    )
+    );
   }
 }
 
