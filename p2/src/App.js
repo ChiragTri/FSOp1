@@ -1,13 +1,31 @@
 import { useState } from "react"
+import "./minimal-table.css"
 
 const Button = ({handleClick, text}) => (<button onClick={handleClick}>{text}</button>)
 
-const StatisticLine = (props) => (<div>{props.text} {props.value}<br></br></div>)
+const StatisticLine = (props) => {
+  return(
+    <table>  
+      <tbody>
+        <tr>
+          <td align="left">{props.text}</td>
+          {props.text == "positive" ? 
+            (<td align="right">{props.value.toFixed(2)} %</td>):
+            (props.text == "average" ?
+              (<td align="right">{props.value.toFixed(3)}</td>):
+              (<td align="right">{props.value}</td>)
+            )
+          }
+        </tr>
+      </tbody>
+    </table>
+  )
+}
 
 const Statistics = (props) => {
   const sum = () => (props.clickGood + props.clickNeutral + props.clickBad)
   const average = () => (props.clickGood - props.clickBad) / sum()
-  const percentPos = () => (props.clickGood) / sum()
+  const percentPos = () => ((props.clickGood)*100 / sum()) 
   
   if (sum() == 0){
     return(
